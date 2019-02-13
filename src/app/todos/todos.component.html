@@ -2,7 +2,10 @@
   Vous avez {{ todos.length }} tâche(s)
 </h2>
 <ul>
-  <li *ngFor="let todo of todos" [ngClass]="{ current: todo == currentTodo }">
+  <li *ngFor="let todo of todos"
+      [ngClass]="{ current: isCurrent(todo) }"
+      (click)="select(todo)"
+  >
     {{ todo.title }}
   </li>
 </ul>

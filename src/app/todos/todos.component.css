@@ -4,6 +4,10 @@ h2 {
   color: #cba;
 }
 
+li {
+  cursor: pointer;
+}
+
 .current {
   text-decoration: underline;
 }

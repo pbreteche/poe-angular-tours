@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Todo} from '../todo';
 import {TodoProvider} from '../todo-provider';
 
@@ -12,6 +12,7 @@ export class TodosComponent implements OnInit {
   provider: TodoProvider;
   todos: Array<Todo>;
   currentTodo: Todo;
+  @Output() selected = new EventEmitter<Todo>();
 
   constructor() {
     this.provider = new TodoProvider();
@@ -20,5 +21,14 @@ export class TodosComponent implements OnInit {
   ngOnInit() {
     this.todos = this.provider.load();
     this.currentTodo = this.todos[0];
+  }
+
+  isCurrent(todo: Todo): boolean {
+    return todo === this.currentTodo;
+  }
+
+  select(selection: Todo): void {
+    this.currentTodo = selection;
+    this.selected.emit(this.currentTodo);
   }
 }
