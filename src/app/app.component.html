@@ -1,5 +1,7 @@
   <h1>
     Welcome to {{ title }}!
   </h1>
-
+<div class="main">
   <app-todos (selected)="setCurrent($event)"></app-todos>
+  <app-todo-detail [todo]="currentTodo"></app-todo-detail>
+</div>

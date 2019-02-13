@@ -3,3 +3,13 @@ h1 {
   background-color: #cba;
   color: #123;
 }
+
+.main {
+  display: flex;
+}
+
+@media screen and (min-width: 720px){
+  .main > * {
+    flex: 0 1 50%;
+  }
+}
