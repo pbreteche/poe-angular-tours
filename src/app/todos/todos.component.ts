@@ -21,6 +21,7 @@ export class TodosComponent implements OnInit {
   ngOnInit() {
     this.todos = this.provider.load();
     this.currentTodo = this.todos[0];
+    this.selected.emit(this.currentTodo);
   }
 
   isCurrent(todo: Todo): boolean {

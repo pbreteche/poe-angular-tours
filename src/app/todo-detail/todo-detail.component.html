@@ -1,3 +1,8 @@
-<h2>
-  {{ todo.title }}
-</h2>
+<article>
+  <h2>
+    {{ todo.title }}
+  </h2>
+  <p>Échéance: {{ todo.endDate.toLocaleDateString() }} </p>
+  <p>De: {{ todo.author }} </p>
+  <p>{{ todo.description }}</p>
+</article>
