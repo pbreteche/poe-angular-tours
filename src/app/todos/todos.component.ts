@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Todo} from '../todo';
+import {TodoProvider} from '../todo-provider';
 
 @Component({
   selector: 'app-todos',
@@ -8,11 +9,16 @@ import {Todo} from '../todo';
 })
 export class TodosComponent implements OnInit {
 
-  todo: Todo = { title: 'faire du js'};
+  provider: TodoProvider;
+  todos: Array<Todo>;
+  currentTodo: Todo;
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor() {
+    this.provider = new TodoProvider();
   }
 
+  ngOnInit() {
+    this.todos = this.provider.load();
+    this.currentTodo = this.todos[0];
+  }
 }

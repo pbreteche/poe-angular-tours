@@ -1,0 +1,9 @@
+h2 {
+  padding: .5em;
+  background-color: #123;
+  color: #cba;
+}
+
+.current {
+  text-decoration: underline;
+}
