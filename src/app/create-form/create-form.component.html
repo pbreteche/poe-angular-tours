@@ -1,4 +1,4 @@
-<form #createForm="ngForm">
+<form #createForm="ngForm" (ngSubmit)="create(createForm)">
   <div class="form-group">
     <label for="create-form.title">Titre</label>
     <input
