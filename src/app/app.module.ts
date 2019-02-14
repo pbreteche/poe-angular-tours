@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { TodosComponent } from './todos/todos.component';
 import { TodoDetailComponent } from './todo-detail/todo-detail.component';
 import { CreateFormComponent } from './create-form/create-form.component';
+import {TodoProvider} from './todo-provider';
 
 @NgModule({
   declarations: [

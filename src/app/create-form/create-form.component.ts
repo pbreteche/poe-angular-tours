@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Todo} from '../todo';
 import {FormGroup} from '@angular/forms';
+import {TodoProvider} from '../todo-provider';
 
 @Component({
   selector: 'app-create-form',
@@ -10,9 +11,10 @@ import {FormGroup} from '@angular/forms';
 export class CreateFormComponent implements OnInit {
 
   todo = new Todo();
+  endDateString: string;
   todayDate = new Date();
 
-  constructor() { }
+  constructor(private provider: TodoProvider) { }
 
   ngOnInit() {
   }
@@ -22,7 +24,8 @@ export class CreateFormComponent implements OnInit {
   }
 
   create(form: FormGroup) {
-    // faire quelque chose avec this.todo
+    this.todo.endDate = new Date(this.endDateString);
+    this.provider.add(this.todo);
     this.todo = new Todo();
     form.reset();
   }

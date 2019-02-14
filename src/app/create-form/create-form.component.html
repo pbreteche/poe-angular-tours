@@ -19,7 +19,7 @@
     <label for="create-form.endDate">Échéance</label>
     <input
       type="date" id="create-form.endDate" name="endDate"
-      [(ngModel)]="todo.endDate"  #endDate="ngModel" #endDateElt
+      [(ngModel)]="endDateString"  #endDate="ngModel" #endDateElt
       [min]="today"
     >
     <p [hidden]="endDate.untouched || endDateElt.validity.valid" class="error">Merci de prévoir une date ultérieure</p>

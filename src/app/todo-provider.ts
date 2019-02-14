@@ -1,12 +1,15 @@
 import {Todo} from './todo';
 import {Injectable} from '@angular/core';
+import {AppModule} from './app.module';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TodoProvider {
-  load(): Array<Todo> {
-    return [
+  data: Array<Todo>;
+
+  constructor() {
+    this.data = [
       {
         title: 'faire du js',
         author: 'Alice',
@@ -29,5 +32,14 @@ export class TodoProvider {
         description: 'le gras, c\'est la vie'
       },
     ];
+  }
+
+  load(): Array<Todo> {
+    return this.data;
+  }
+
+  add(todo: Todo) {
+    console.log(todo);
+    this.data.push(todo);
   }
 }
