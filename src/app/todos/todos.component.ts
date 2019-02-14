@@ -9,13 +9,11 @@ import {TodoProvider} from '../todo-provider';
 })
 export class TodosComponent implements OnInit {
 
-  provider: TodoProvider;
   todos: Array<Todo>;
   currentTodo: Todo;
   @Output() selected = new EventEmitter<Todo>();
 
-  constructor() {
-    this.provider = new TodoProvider();
+  constructor(private provider: TodoProvider) {
   }
 
   ngOnInit() {
