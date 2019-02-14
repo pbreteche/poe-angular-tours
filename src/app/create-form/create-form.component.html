@@ -1,0 +1,25 @@
+<form>
+  <div>
+    <label for="create-form.title">Titre</label>
+    <input
+      type="text" id="create-form.title" name="title"
+      [(ngModel)]="todo.title"
+      required
+    >
+  </div>
+  <div>
+    <label for="create-form.author">Auteur</label>
+    <input
+      type="text" id="create-form.author" name="author"
+      [(ngModel)]="todo.author"
+    >
+  </div>
+  <div>
+    <label for="create-form.endDate">Échéance</label>
+    <input
+      type="date" id="create-form.endDate" name="endDate"
+      [(ngModel)]="todo.endDate"
+    >
+  </div>
+  <button>On y va !</button>
+</form>
