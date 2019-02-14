@@ -3,8 +3,8 @@
     <label for="create-form.title">Titre</label>
     <input
       type="text" id="create-form.title" name="title"
-      [(ngModel)]="todo.title"
-      required #title="ngModel"
+      [(ngModel)]="todo.title" #title="ngModel"
+      required
     >
     <p [hidden]="title.untouched || title.valid" class="error">Pouvez-vous ajouer un titre SVP</p>
   </div>
@@ -19,8 +19,19 @@
     <label for="create-form.endDate">Échéance</label>
     <input
       type="date" id="create-form.endDate" name="endDate"
-      [(ngModel)]="todo.endDate"
+      [(ngModel)]="todo.endDate"  #endDate="ngModel" #endDateElt
+      [min]="today"
     >
+    <p [hidden]="endDate.untouched || endDateElt.validity.valid" class="error">Merci de prévoir une date ultérieure</p>
+  </div>
+  <div class="form-group">
+    <label for="create-form.price">Tarif</label>
+    <input
+      type="number" id="create-form.price" name="price"
+      [(ngModel)]="todo.price"  #price="ngModel"
+      min="0"
+    >
+    <p [hidden]="price.untouched || price.valid" class="error">Merci de prévoir un tarif positif</p>
   </div>
   <button [disabled]="createForm.invalid">On y va !</button>
 </form>

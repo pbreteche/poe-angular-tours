@@ -9,10 +9,15 @@ import {Todo} from '../todo';
 export class CreateFormComponent implements OnInit {
 
   todo = new Todo();
+  todayDate = new Date();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  get today(): string {
+    return this.todayDate.toISOString().substr(0, 10);
   }
 
 }
