@@ -7,7 +7,7 @@ import { TodosComponent } from './todos/todos.component';
 import { TodoDetailComponent } from './todo-detail/todo-detail.component';
 import { CreateFormComponent } from './create-form/create-form.component';
 import {TodoProvider} from './todo-provider';
-import {CONFIG_URL, URL_TOKEN} from './config';
+import {ALIAS_TOKEN, CONFIG_URL, URL_TOKEN} from './config';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,8 @@ import {CONFIG_URL, URL_TOKEN} from './config';
   ],
   providers: [
     TodoProvider,
-    { provide: URL_TOKEN, useValue: CONFIG_URL},
+    { provide: URL_TOKEN, useValue: CONFIG_URL },
+    { provide: ALIAS_TOKEN, useExisting: URL_TOKEN },
   ],
   bootstrap: [AppComponent]
 })

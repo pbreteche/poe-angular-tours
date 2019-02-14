@@ -1,6 +1,6 @@
 import {Component, Inject} from '@angular/core';
 import {Todo} from './todo';
-import {URL_TOKEN} from './config';
+import {ALIAS_TOKEN, URL_TOKEN} from './config';
 
 @Component({
   selector: 'app-root',
@@ -11,8 +11,11 @@ export class AppComponent {
 
   private currentTodo: Todo;
 
-  constructor(@Inject(URL_TOKEN) url: string) {
-    console.log(url);
+  constructor(
+    @Inject(URL_TOKEN) url: string,
+    @Inject(ALIAS_TOKEN) url2: string
+  ) {
+    console.log(url, url2);
   }
 
   setCurrent(todo: Todo) {
