@@ -1,10 +1,7 @@
 import {Todo} from './todo';
 import {Injectable} from '@angular/core';
-import {AppModule} from './app.module';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class TodoProvider {
   data: Array<Todo>;
 
