@@ -1,25 +1,26 @@
-<form>
-  <div>
+<form #createForm="ngForm">
+  <div class="form-group">
     <label for="create-form.title">Titre</label>
     <input
       type="text" id="create-form.title" name="title"
       [(ngModel)]="todo.title"
-      required
+      required #title="ngModel"
     >
+    <p [hidden]="title.untouched || title.valid" class="error">Pouvez-vous ajouer un titre SVP</p>
   </div>
-  <div>
+  <div class="form-group">
     <label for="create-form.author">Auteur</label>
     <input
       type="text" id="create-form.author" name="author"
       [(ngModel)]="todo.author"
     >
   </div>
-  <div>
+  <div class="form-group">
     <label for="create-form.endDate">Échéance</label>
     <input
       type="date" id="create-form.endDate" name="endDate"
       [(ngModel)]="todo.endDate"
     >
   </div>
-  <button>On y va !</button>
+  <button [disabled]="createForm.invalid">On y va !</button>
 </form>

@@ -1,0 +1,21 @@
+.form-group {
+  display: flex;
+  margin: .5em 0;
+}
+
+.form-group > label {
+  width: 20ch;
+  text-align: right;
+}
+input {
+  border: 1px solid darkgray;
+}
+
+input.ng-invalid.ng-touched {
+  box-shadow: 0 0 .5em .2em darkred;
+  background-color: #ff7777;
+}
+
+input.ng-valid.ng-dirty {
+  background-color: #77ffaa;
+}
