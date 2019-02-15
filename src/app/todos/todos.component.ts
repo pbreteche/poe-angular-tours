@@ -15,13 +15,11 @@ export class TodosComponent implements OnInit {
   @Output() selected = new EventEmitter<Todo>();
 
   constructor(private provider: TodoProvider) {
+    this.todos = this.provider.data;
   }
 
   ngOnInit() {
-    this.provider.load().subscribe(data => {
-      console.log(data);
-      return this.todos = data;
-    });
+    this.provider.load();
   }
 
   isCurrent(todo: Todo): boolean {

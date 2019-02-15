@@ -9,8 +9,13 @@ export class TodoProvider {
 
   constructor(private http: HttpClient) { }
 
-  load(): Observable<Array<Todo>> {
-    return this.http.get('/assets/todos.json') as Observable<Array<Todo>>;
+  load(): void {
+    this.http.get('/assets/todos.json')
+      .subscribe(
+        (data: Array<Todo>) => data.forEach(
+          elt => this.data.push(elt)
+        )
+      );
   }
 
   add(todo: Todo) {
