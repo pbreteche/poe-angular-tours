@@ -1,6 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Todo} from '../todo';
 import {TodoProvider} from '../todo-provider';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-todos',
@@ -9,7 +10,7 @@ import {TodoProvider} from '../todo-provider';
 })
 export class TodosComponent implements OnInit {
 
-  todos: Array<Todo>;
+  todos: Array<Todo> = [];
   currentTodo: Todo;
   @Output() selected = new EventEmitter<Todo>();
 
@@ -17,9 +18,10 @@ export class TodosComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.todos = this.provider.load();
-    this.currentTodo = this.todos[0];
-    this.selected.emit(this.currentTodo);
+    this.provider.load().subscribe(data => {
+      console.log(data);
+      return this.todos = data;
+    });
   }
 
   isCurrent(todo: Todo): boolean {

@@ -9,7 +9,8 @@ import {ALIAS_TOKEN, FACTORY_TOKEN, URL_TOKEN} from './config';
 })
 export class AppComponent {
 
-  private currentTodo: Todo;
+  title = 'Toodoo';
+  currentTodo: Todo;
 
   constructor(
     @Inject(URL_TOKEN) url: string,

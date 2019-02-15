@@ -8,6 +8,7 @@ import { TodoDetailComponent } from './todo-detail/todo-detail.component';
 import { CreateFormComponent } from './create-form/create-form.component';
 import {TodoProvider} from './todo-provider';
 import {ALIAS_TOKEN, CONFIG_URL, FACTORY_TOKEN, LOCALE, LOCALE_TOKEN, myFactory, URL_TOKEN} from './config';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {ALIAS_TOKEN, CONFIG_URL, FACTORY_TOKEN, LOCALE, LOCALE_TOKEN, myFactory,
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [
     TodoProvider,

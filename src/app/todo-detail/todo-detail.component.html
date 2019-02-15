@@ -1,9 +1,13 @@
-<article>
+<article *ngIf="todo">
   <h2>
     {{ todo.title }}
   </h2>
-  <p>Échéance: {{ todo.endDate.toLocaleDateString() }} </p>
+  <p>Échéance: {{ todo.endDate }} </p>
   <p>De: {{ todo.author }} </p>
   <p>Tarif: {{ todo.price | currency:'INR' }}</p>
   <p>{{ todo.description }}</p>
+</article>
+
+<article *ngIf="!todo">
+  <h2>Sélectionnez une tâche</h2>
 </article>

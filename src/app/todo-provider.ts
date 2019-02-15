@@ -1,42 +1,21 @@
 import {Todo} from './todo';
 import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
 
 @Injectable()
 export class TodoProvider {
-  data: Array<Todo>;
+  data: Array<Todo> = [];
 
-  constructor() {
-    this.data = [
-      {
-        title: 'faire du js',
-        author: 'Alice',
-        endDate: new Date('2019-02-15'),
-        price: 100,
-        description: 'coder, coder et toujours coder'
-      },
-      {
-        title: 'acheter du pain',
-        author: 'Bod',
-        endDate: new Date('2019-12-31'),
-        price: 80,
-        description: 'une petite tradi'
-      },
-      {
-        title: 'manger du fromage',
-        author: 'Alice',
-        endDate: new Date('2019-06-21'),
-        price: 120,
-        description: 'le gras, c\'est la vie'
-      },
-    ];
-  }
+  constructor(private http: HttpClient) { }
 
-  load(): Array<Todo> {
-    return this.data;
+  load(): Observable<Array<Todo>> {
+    return this.http.get('/assets/todos.json') as Observable<Array<Todo>>;
   }
 
   add(todo: Todo) {
     console.log(todo);
     this.data.push(todo);
+    this.http.post('/assets/todos.json', todo).subscribe(() => this.load());
   }
 }
