@@ -9,6 +9,7 @@ import { CreateFormComponent } from './create-form/create-form.component';
 import {TodoProvider} from './todo-provider';
 import {ALIAS_TOKEN, CONFIG_URL, FACTORY_TOKEN, LOCALE, LOCALE_TOKEN, myFactory, URL_TOKEN} from './config';
 import {HttpClientModule} from '@angular/common/http';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,9 @@ import {HttpClientModule} from '@angular/common/http';
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    RouterModule.forRoot([
+      { path: '**', component: TodosComponent }
+    ]),
   ],
   providers: [
     TodoProvider,
